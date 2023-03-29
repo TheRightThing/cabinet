@@ -1,0 +1,2 @@
+# cabinet
+Minimal TUI filebrowser
