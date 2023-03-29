@@ -11,3 +11,12 @@ set_property(TARGET ncurses PROPERTY IMPORTED_LOCATION "build/ncurses/lib/libncu
 include_directories(./build/ncurses/include)
 add_executable(cabinet ${cabinet_src})
 target_link_libraries(cabinet ncurses)
+
+file(GLOB_RECURSE cabinet_test_src ./test/*.c)
+list(FILTER cabinet_src EXCLUDE REGEX "main.c")
+add_executable(cabinet_test ${cabinet_test_src} ${cabinet_src})
+target_link_libraries(cabinet_test ncurses)
+
+add_custom_command(TARGET cabinet_test POST_BUILD
+	COMMAND cabinet_test
+	COMMENT "Testing cabinet...")
