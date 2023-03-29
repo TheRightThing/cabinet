@@ -58,3 +58,6 @@ CMakeFiles
 Makefile
 cabinet
 cmake_install.cmake
+
+# Build folder
+build
