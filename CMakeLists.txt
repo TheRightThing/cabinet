@@ -16,6 +16,7 @@ target_link_libraries(cabinet ncurses)
 file(GLOB_RECURSE cabinet_test_src ./test/*.c)
 list(FILTER cabinet_src EXCLUDE REGEX "main.c")
 add_executable(cabinet_test ${cabinet_test_src} ${cabinet_src})
+include_directories(./src)
 target_link_libraries(cabinet_test ncurses)
 
 add_custom_command(TARGET cabinet_test POST_BUILD
